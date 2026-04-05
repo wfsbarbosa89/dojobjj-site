@@ -20,8 +20,14 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    /* Imagem de fundo premium de academia/tatame */
-    background: url('https://images.unsplash.com/photo-1564415315949-22c608229b4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+    
+    /* ESTA É A PARTE IMPORTANTE: */
+    /* Criamos uma camada escura suave por cima da tua imagem para ficar elegante */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('fundo.jpg') center/cover no-repeat fixed;
+    
+    /* Se quiseres que o fundo fique um pouco desfocado (blur), podes manter isto: */
+    /* backdrop-filter: blur(5px); */ 
 }
 
 /* Efeito de Vidro Jateado (Glassmorphism) */
