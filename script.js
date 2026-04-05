@@ -1,27 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('waitlist-form');
-    const emailInput = document.getElementById('email');
-    const successMessage = document.getElementById('success-message');
-    const submitButton = form.querySelector('button');
+    const progressBar = document.getElementById('progressBar');
+    
+    // Anima a barra para a posição de 72% após o carregamento da página
+    setTimeout(() => {
+        progressBar.style.width = '72%';
+    }, 300);
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        if (emailInput.value.trim() !== '') {
-            // Feedback de carregamento
-            const originalText = submitButton.textContent;
-            submitButton.textContent = 'Adicionando...';
-            submitButton.disabled = true;
-            emailInput.disabled = true;
-
-            // Simula um delay de requisição (1.5s)
-            setTimeout(() => {
-                form.style.display = 'none';
-                successMessage.classList.remove('hidden');
-                
-                // Limpa o e-mail (caso a pessoa recarregue)
-                emailInput.value = '';
-            }, 1500);
+    // Comportamento do botão de aviso
+    const notifyBtn = document.getElementById('notifyBtn');
+    
+    notifyBtn.addEventListener('click', () => {
+        const emailInput = document.getElementById('emailInput');
+        
+        // Validação simples do e-mail
+        if (emailInput.value && emailInput.checkValidity()) {
+            alert(`Oss! Avisaremos você no e-mail: ${emailInput.value}`);
+            emailInput.value = ''; // Limpa o campo após o envio
+        } else {
+            alert('Por favor, insira um e-mail válido.');
         }
     });
 });
