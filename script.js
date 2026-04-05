@@ -1,25 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('notify-form');
+    const form = document.getElementById('waitlist-form');
     const emailInput = document.getElementById('email');
     const successMessage = document.getElementById('success-message');
     const submitButton = form.querySelector('button');
 
     form.addEventListener('submit', (e) => {
-        // Evita que a página recarregue
         e.preventDefault();
 
-        if (emailInput.value) {
-            // Animação de "Enviando"
+        if (emailInput.value.trim() !== '') {
+            // Feedback de carregamento
             const originalText = submitButton.textContent;
-            submitButton.textContent = 'Enviando...';
+            submitButton.textContent = 'Adicionando...';
             submitButton.disabled = true;
             emailInput.disabled = true;
 
-            // Simula um tempo de carregamento de API (1.5 segundos)
+            // Simula um delay de requisição (1.5s)
             setTimeout(() => {
-                // Esconde o formulário e mostra a mensagem de sucesso
                 form.style.display = 'none';
                 successMessage.classList.remove('hidden');
+                
+                // Limpa o e-mail (caso a pessoa recarregue)
+                emailInput.value = '';
             }, 1500);
         }
     });

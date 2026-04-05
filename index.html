@@ -3,46 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DojoBJJ - Em Construção</title>
+    <title>DojoBJJ - A Plataforma Completa</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="overlay"></div>
-    <div class="container">
-        <header>
+    <div class="page-wrapper">
+        <nav class="navbar">
             <div class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 4H5C3.89543 4 3 4.89543 3 6V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V6C21 4.89543 20.1046 4 19 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3 10H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 10V20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 4H5C3.89543 4 3 4.89543 3 6V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V6C21 4.89543 20.1046 4 19 4Z"/>
+                    <path d="M3 10H21"/><path d="M12 10V20"/>
                 </svg>
                 <span>DojoBJJ</span>
             </div>
-        </header>
+            <div class="status-badge">Em construção</div>
+        </nav>
 
-        <main>
-            <div class="badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                Para academias, professores e alunos
-            </div>
-            
-            <h1>A plataforma completa<br>está ganhando forma.</h1>
-            <p>Estamos trabalhando nos bastidores para trazer a melhor experiência em gestão de academias de Jiu-Jitsu. Tudo em um só lugar. Deixe seu e-mail para receber acesso antecipado.</p>
+        <main class="content">
+            <header class="hero">
+                <h1>O tatame digital definitivo para o Jiu-Jitsu.</h1>
+                <p>Uma plataforma incrível e integrada, projetada para conectar todas as pontas do esporte. Estamos finalizando os últimos ajustes.</p>
+            </header>
 
-            <form id="notify-form">
-                <input type="email" id="email" placeholder="Digite seu melhor e-mail..." required>
-                <button type="submit">Avisar-me</button>
-            </form>
-            
-            <p id="success-message" class="hidden">Oss! E-mail cadastrado com sucesso. Avisaremos em breve.</p>
+            <section class="benefits-grid">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <h3>Para Alunos</h3>
+                    <p>Acompanhe sua evolução, histórico de treinos, frequência, check-in diário e fique de olho na sua próxima graduação direto do celular.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                    <h3>Para Professores</h3>
+                    <p>Crie planos de aula, monitore o desempenho de cada atleta, gerencie presenças e tenha total controle sobre o desenvolvimento da sua equipe.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    </div>
+                    <h3>Para Academias</h3>
+                    <p>Gestão completa em um só lugar. Controle financeiro, gestão de matrículas, planos, vitrine de loja e painel de dados para escalar seu negócio.</p>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <div class="cta-card">
+                    <h2>Seja um dos primeiros a testar</h2>
+                    <p>Inscreva-se na nossa lista VIP e receba um aviso exclusivo assim que a plataforma for lançada.</p>
+                    
+                    <form id="waitlist-form">
+                        <input type="email" id="email" placeholder="Seu melhor e-mail corporativo ou pessoal" required>
+                        <button type="submit">Entrar na Lista VIP</button>
+                    </form>
+                    <p id="success-message" class="hidden">✓ Tudo certo! Seu lugar na lista está garantido.</p>
+                </div>
+            </section>
         </main>
-        
-        <footer>
-            <p>&copy; 2026 DojoBJJ. Todos os direitos reservados.</p>
-        </footer>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
