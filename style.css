@@ -1,184 +1,197 @@
-/* CSS resets e base styles */
+/* Reset e Variáveis */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-body, html {
-    height: 100%;
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+:root {
+    --text-dark: #1e293b;
+    --text-muted: #475569;
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-/* Fundo desfocado com a imagem da academia */
-.background-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* ATENÇÃO: O nome da imagem aqui deve ser igual ao arquivo na sua pasta */
-    background-image: url('academia.jpg'); 
-    background-size: cover;
-    background-position: center;
-    filter: blur(25px);
-    transform: scale(1.1); /* Compensa as bordas brancas do blur */
-    z-index: -2;
-}
-
-.background-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.4);
-    z-index: -1;
-}
-
-/* Conteúdo principal centralizado */
-.main-content {
+body {
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    text-align: center;
     padding: 20px;
-    color: #1a1a1a;
+    /* Imagem de fundo premium de academia/tatame */
+    background: url('https://images.unsplash.com/photo-1564415315949-22c608229b4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
 }
 
-.icon-construction-box {
-    width: 80px;
-    height: 80px;
-    background-color: #f2f2f2;
-    border-radius: 12px;
+/* Efeito de Vidro Jateado (Glassmorphism) */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow);
+    padding: 3rem 4rem;
+    max-width: 750px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-top: 30px; /* Espaço para o ícone flutuante */
+    animation: fadeIn 1s ease-out;
+}
+
+/* Ícone Flutuante */
+.icon-box {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid #ffffff;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
-    border: 1px solid #e0e0e0;
+    color: var(--text-dark);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.icon-construction {
-    font-size: 40px;
-    color: #333;
-    line-height: 1;
-}
-
+/* Textos */
 h1 {
-    font-size: 48px;
+    color: var(--text-dark);
+    font-size: 2.75rem;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
 }
 
 p {
-    font-size: 18px;
-    color: #5a5a5a;
-    max-width: 600px;
-    margin-bottom: 32px;
+    color: var(--text-muted);
+    font-size: 1.125rem;
     line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+    margin-inline: auto;
 }
 
-/* Barra de Progresso */
-.progress-container {
-    width: 100%;
-    max-width: 600px;
+/* Barra de Progresso Elegante */
+.progress-wrapper {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
 }
 
-.progress-label {
-    font-size: 16px;
-    color: #5a5a5a;
-    margin-right: 16px;
+.progress-label, .progress-percent {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    min-width: 80px;
 }
 
-.progress-percent {
-    font-size: 16px;
-    color: #5a5a5a;
-    margin-left: 16px;
-}
+.progress-label { text-align: right; }
+.progress-percent { text-align: left; }
 
-.progress-bar-bg {
+.progress-track {
     flex-grow: 1;
-    height: 10px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%; /* Inicia em 0 para animar */
+    background: linear-gradient(90deg, #334155, #0f172a);
+    border-radius: 10px;
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
 }
 
-.progress-bar-fill {
-    height: 100%;
-    background-color: #1a1a1a;
-    border-radius: 5px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0%;
-    transition: width 1.5s ease-in-out;
-}
-
-/* Formulário de E-mail */
-.form-container {
+/* Formulário e Botão */
+.form-group {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    gap: 16px;
+    gap: 1rem;
+    max-width: 550px;
+    margin: 0 auto;
 }
 
-.email-input-group {
+.input-wrapper {
     position: relative;
     flex-grow: 1;
 }
 
-.email-input-icon {
+.input-icon {
     position: absolute;
-    left: 16px;
+    left: 18px;
     top: 50%;
     transform: translateY(-50%);
-    color: #9e9e9e;
-    font-size: 18px;
+    color: var(--text-muted);
 }
 
-input[type="email"] {
+input {
     width: 100%;
-    padding: 16px 16px 16px 48px;
-    font-size: 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #1a1a1a;
+    padding: 1rem 1rem 1rem 3rem;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+    font-size: 1rem;
+    color: var(--text-dark);
     outline: none;
-    transition: border-color 0.2s;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
 }
 
-input[type="email"]:focus {
-    border-color: #1a1a1a;
+input::placeholder {
+    color: #64748b;
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.3);
 }
 
 button {
-    padding: 16px 24px;
-    font-size: 16px;
+    background: linear-gradient(135deg, #1e293b, #020617);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 2rem;
+    border-radius: 14px;
     font-weight: 600;
-    color: white;
-    background-color: #1a1a1a;
-    border: none;
-    border-radius: 8px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 button:hover {
-    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #334155, #0f172a);
 }
 
-button:active {
-    transform: translateY(1px);
+/* Animação de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .glass-card { padding: 3rem 2rem; }
+    h1 { font-size: 2rem; }
+    .form-group { flex-direction: column; }
+    button { padding: 1rem; width: 100%; }
+    .progress-wrapper { flex-direction: column; gap: 0.5rem; }
+    .progress-label, .progress-percent { text-align: center; }
+    .progress-track { width: 100%; }
 }
